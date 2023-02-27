@@ -89,6 +89,8 @@ class OilDataList(tk.Frame):
             total_oil+=concentration_var.get()/100*qty.get()
         for oil_ctr in self.oil_ctrlist:
             oil_entry,concentration_var, concentration_entry, qty,qty_entry, add_qty_button, sub_qty_button, remove_button = oil_ctr
+            if total_oil==0:
+                return {}
             concentration = concentration_var.get()*qty.get()/100/total_oil
             concentraion_dict[oil_entry.get()]=concentration
         return concentraion_dict

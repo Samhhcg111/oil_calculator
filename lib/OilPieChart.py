@@ -56,4 +56,4 @@ class PieChart(tk.Frame):
             ax.legend(new_labels,prop=self.fontprop)
             self.subplot.set_title(self.title,fontproperties=self.fontprop)
             self.canvas.draw()
-        self.after(10,self.update_data)
+        self.after(500,self.update_data)
