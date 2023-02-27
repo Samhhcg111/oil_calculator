@@ -28,7 +28,9 @@ class PieChart(tk.Frame):
         # Create a canvas to display the chart
         self.canvas = FigureCanvasTkAgg(self.figure, master=self)
         self.canvas.get_tk_widget().pack()
-
+        
+        self.safety_label = tk.Label(self, text=str(f"最終稀釋濃度0%"))
+        self.safety_label.pack()
         self.colors = []
         for i in range(len(self.database.get_piechart_data())):
             self.colors.append('#{:06x}'.format(random.randint(0, 256**3-1)))
@@ -55,5 +57,7 @@ class PieChart(tk.Frame):
             ax = self.subplot
             ax.legend(new_labels,prop=self.fontprop)
             self.subplot.set_title(self.title,fontproperties=self.fontprop)
+            safetyConcentration = self.database.getSafetyConcentration()
+            self.safety_label.config(text=str(f"最終稀釋濃度{safetyConcentration}%"))
             self.canvas.draw()
         self.after(500,self.update_data)
