@@ -25,7 +25,7 @@ class OilDataList(tk.Frame):
     def add_basic_oil(self):
         oil_var  = tk.StringVar()
         oil_var.set(f"稀釋基底油")
-        self.basic_oil_entry = tk.Entry(self, textvariable=oil_var,width=5)
+        self.basic_oil_entry = tk.Entry(self, textvariable=oil_var,width=10)
         self.basic_oil_entry.grid(row=1, column=1, padx=5, pady=5)
 
         self.basic_oil_qty = tk.IntVar()
@@ -46,7 +46,7 @@ class OilDataList(tk.Frame):
         
         oil_var  = tk.StringVar()
         oil_var.set(f"精油{row}")
-        oil_entry = tk.Entry(self, textvariable=oil_var,width=5)
+        oil_entry = tk.Entry(self, textvariable=oil_var,width=10)
         oil_entry.grid(row=row, column=1, padx=5, pady=5)
         
         concentration_var=tk.DoubleVar()
